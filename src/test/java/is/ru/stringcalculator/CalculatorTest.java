@@ -1,15 +1,17 @@
 package test.java.is.ru.stringcalculator;
 
-/*import static org.junit.Assert.assertEquals;
-import org.junit.Test;*/
+import main.java.is.ru.stringcalculator.Calculator;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 public class CalculatorTest {
 
 	public static void main(String args[]) {
-      //org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
+      org.junit.runner.JUnitCore.main("is.ru.stringcalculator.CalculatorTest");
     }
 
-	/*@Test
+	@Test
 	public void testEmptyString() {
 		assertEquals(0, Calculator.add(""));
 	}
@@ -27,6 +29,6 @@ public class CalculatorTest {
 	@Test
     public void testMultipleNumbers(){
     	assertEquals(6, Calculator.add("1,2,3"));
-    }*/
+    }
 
 }
