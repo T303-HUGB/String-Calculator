@@ -1,6 +1,7 @@
 package main.java.is.ru.stringcalculator;
 
 import java.util.Arrays;
+import java.util.regex.Pattern;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
@@ -9,32 +10,27 @@ import java.util.ArrayList;
 
 public class Calculator {	
 	
+	
+    public static final String defaultDelim = "[,\n]";
+	
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
+		}else if(text.length() == 1){
+			return toInt(text);
 		}else if(text.startsWith("//")){
-			//delimiter += "|" + text.substring(2, 3);
-			String str = "";
-			for(int i = 3; i < text.length(); i++){
-				if(text.charAt(i) != text.charAt(2)){
-					str += text.charAt(i);
-					
-				}else{
-					str += ",";
-				}
-				
-			}
-			StdOut.println(str);
-			str = "1,2";
-			StdOut.println(str);
-			//text = str;
-			return sum(splitNumbers(str));
-		}
-		else if(text.contains(",") || text.contains("\n")){
-			return sum(splitNumbers(text));
-		}
-		else
-			return 1;
+			parseText(text);
+			return -1;
+		}else{
+			return sum(text.split(defaultDelim));
+		}	
+	}
+	
+	private static void parseText(String text) {
+		// TODO Auto-generated method stub
+		ArrayList<String> list = new ArrayList<String>();
+		
+		
 	}
 
 	private static int toInt(String number){
@@ -42,7 +38,7 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split("[\\D]");
+	    return numbers.split(defaultDelim);
 	}
       
     private static int sum(String[] numbers){
@@ -55,6 +51,9 @@ public class Calculator {
         		list.add(toInt(number));
         	}else
 		    total += toInt(number);
+		}
+        if(list.size() > 0){
+			ThrowAndReturnNegatives(list);
 		}
         //StdOut.println(total);
 		return total;
