@@ -49,7 +49,9 @@ public class Calculator {
  	    int total = 0;    
  	   ArrayList<Integer> list = new ArrayList<Integer>();
         for(String number : numbers){
-        	if(checkNegative(number)){
+        	if(toInt(number) > 1000){
+        		
+        	}else if(checkNegative(number)){
         		list.add(toInt(number));
         	}else
 		    total += toInt(number);
