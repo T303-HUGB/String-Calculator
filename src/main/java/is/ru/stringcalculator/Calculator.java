@@ -5,6 +5,8 @@ import java.util.Arrays;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.ArrayList;
+
 public class Calculator {	
 	
 	public static int add(String text){
@@ -44,13 +46,37 @@ public class Calculator {
 	}
       
     private static int sum(String[] numbers){
- 	    int total = 0;
+ 	    int total = 0;    
+ 	   ArrayList<Integer> list = new ArrayList<Integer>();
         for(String number : numbers){
+        	if(checkNegative(number)){
+        		list.add(toInt(number));
+        	}else
 		    total += toInt(number);
 		}
         //StdOut.println(total);
 		return total;
     }
+    
+	private static boolean checkNegative(String number) {
+		// TODO Auto-generated method stub
+		if(toInt(number) < 0){
+			return true;
+		}
+		return false;
+	}
+	
+	private static void ThrowAndReturnNegatives( ArrayList<Integer> list ) throws IllegalArgumentException {
+		String negatives= "";
+		for(int i = 0; i < list.size(); i++){
+			if(i == 0){
+				negatives += list.get(i);
+			}else {
+				negatives = negatives + ", " + list.get(i);
+			}
+		}
+		throw new IllegalArgumentException("Negatives not allowed: " + negatives);
+	}
     
     
 }
