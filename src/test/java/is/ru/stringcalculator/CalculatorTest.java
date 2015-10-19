@@ -37,10 +37,10 @@ public class CalculatorTest {
     	assertEquals(6, Calculator.add("1\n2,3"));
     }
 	
-	/*@Test
+	@Test
 	public void testWithDelimiter(){
 		assertEquals(3, Calculator.add("//;\n1;2"));
-	}*/
+	}
 
 	
 	@Test( expected = IllegalArgumentException.class )
@@ -62,8 +62,8 @@ public class CalculatorTest {
 		assertEquals(502, Calculator.add("1001,2,500"));
 	}
 	
-	/*@Test
+	@Test
 	public void testAnyLengthDelimiters(){
 		assertEquals(6, Calculator.add("//[***]\n1***2***3"));
-	}*/
+	}
 }
